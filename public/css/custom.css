@@ -1,0 +1,29 @@
+body{
+    background-color: #1d2124;
+}
+
+h1{
+    color: #ffe800;
+}
+
+h4{
+    padding-left: 5%;
+}
+
+a{
+    color: #ffe800;
+}
+
+a:hover{
+    color: #e0a800;
+}
+
+.main-page{
+    padding: 2%;
+}
+
+.navbar {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}

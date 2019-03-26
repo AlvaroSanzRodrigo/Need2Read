@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Need2Read</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script id="login_view" type="text/template">
+        <div class="justify-content-center login-view">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title text-center mb-4 mt-1">Log in</h4>
+                    <p class="text-center">Log in to save your un-read book list.</p>
+                    <hr>
+                    <div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="" class="form-control login-email" placeholder="Email" type="email">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input class="form-control login-password" placeholder="******" type="password">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div>
+                            <button class="btn btn-warning btn-block btn-login"> Log in</button>
+                            <button class="btn btn-warning btn-block btn-go-register"> Register</button>
+                        </div> <!-- form-group// -->
+                        <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </script>
+
+    <script id="register_view" type="text/template">
+        <div class="justify-content-center register-view">
+            <div class="card">
+                <article class="card-body">
+                    <h4 class="card-title text-center mb-4 mt-1">Register</h4>
+                    <p class="text-center">Register to save your un-read book list.</p>
+                    <hr>
+                    <div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="" class="form-control register-email" placeholder="Email" type="email">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input class="form-control register-password" placeholder="******" type="password">
+                            </div> <!-- input-group.// -->
+                        </div> <!-- form-group// -->
+                        <div>
+                            <button class="btn btn-warning btn-block btn-register"> Register</button>
+                            <button class="btn btn-warning btn-block btn-go-login"> Log in</button>
+                        </div> <!-- form-group// -->
+                        <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </script>
+
+    <script id="book_view" type="text/template">
+        <div class="container col-xs-1 col-sm-1 col-md-6 justify-content-center main-page">
+            <div class="card flex-row flex-wrap">
+                <div class="card-header border-0">
+                    <img src="http://books.google.com/books/content?id=2zgRDXFWkm8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="">
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title text-center"><%= title %></h2>
+                    <h4 class="card-subtitle text-center te"><%= author %></h4>
+                    <p class="card-text text-center"><%= description %></p>
+                </div>
+                <div class="w-100"></div>
+                <div class="card-footer w-100 text-center">
+                    <button class="btn btn-warning"><i class="far fa-plus-square"></i> add to library</button>
+                    <button class="btn btn-warning"><i class="far fa-check-square"></i> mark as read</button>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyByfdaJqIqAL46rMyDG0V43MCv0nvAR1v8",
+            authDomain: "need2read-20497.firebaseapp.com",
+            databaseURL: "https://need2read-20497.firebaseio.com",
+            projectId: "need2read-20497",
+            storageBucket: "need2read-20497.appspot.com",
+            messagingSenderId: "219858305821"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/vendor/lib/underscore.js"></script>
+    <script src="js/vendor/lib/backbone-min.js"></script>
+    <script src="js/vendor/Views/Login.js"></script>
+    <script src="js/vendor/Views/Register.js"></script>
+
+    <script src="js/vendor/Controllers/Firebase.js"></script>
+    <script src="js/vendor/Models/Book.js"></script>
+    <script src="js/vendor/script.js"></script>
+    <script src="js/vendor/Views/BookView.js"></script>
+
+
+</head>
+<body >
+
+<div class="container col-xs-4 col-sm-4 col-md-6 justify-content-center main-page">
+    <div class="sticky-top menu">
+         <h1 class="text-center">Need2Read</h1>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <a class="nav-item btn btn-warning">My profile</a>
+                <a class="nav-item btn btn-warning">My books</a>
+                <a class="nav-item btn btn-warning">Log out</a>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h4 class="text-white mr-auto">Menu</h4>
+        </nav>
+    </div>
+
+</div>
+
+<footer class="container text-center col-xs-4 col-sm-4 col-md-6 justify-content-center">
+    <a href="disclaimer.html">Privacy disclaimer</a>
+    ·
+    <a href="disclaimer.html">External libraries</a>
+
+</footer>
+
+</body>
+</html>
