@@ -1,5 +1,6 @@
 let Book = Backbone.Model.extend({
     defaults: {
+        googleID: 'undefined google id',
         title: 'undefined title',
         img: 'undefined image',
         description: 'undefined description',

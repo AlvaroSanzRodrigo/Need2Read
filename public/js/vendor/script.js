@@ -8,5 +8,6 @@ function start() {
     let mainPage = $('.main-page');
     mainPage.append(menu.render().$el);
     mainPage.append(login.render().$el);
+    $('.menu-button').css("display", "none");
 }
 
