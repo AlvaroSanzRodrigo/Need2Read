@@ -4,6 +4,8 @@ body{
 
 h1{
     color: #ffe800;
+    background-color: #343a40;
+    margin-bottom: 0;
 }
 
 h4{
@@ -18,12 +20,27 @@ a:hover{
     color: #e0a800;
 }
 
+
+
 .main-page{
-    padding: 2%;
+    padding: 0%;
+    background-color: #1d2124;
 }
 
 .navbar {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.book-view-div{
+    padding-top: 2%;
+}
+
+#menu{
+    background-color: #343a40;
+}
+
+#menu-search-input{
+    display: inline;
 }

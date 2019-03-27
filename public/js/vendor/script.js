@@ -1,8 +1,12 @@
 $(document).ready(function () {
-    let login = new Login();
-    $('.main-page').append(login.render().$el);
-    $.get('https://www.googleapis.com/books/v1/volumes?q=harry+potter').then(function (data) {
-        console.log(data)
-    })
+    start();
 });
+
+function start() {
+    let login = new Login();
+    let menu = new Menu();
+    let mainPage = $('.main-page');
+    mainPage.append(menu.render().$el);
+    mainPage.append(login.render().$el);
+}
 
